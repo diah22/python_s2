@@ -1,0 +1,10 @@
+import socket
+connexion_principale=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+connexion_principale.bind(('',12800))
+connexion_principale.listen(10)
+print('en ecoute...')
+connexion_avec_client, info_connexion= connexion_principale.accept()
+print('connecter')
+connexion_avec_client.send(b"Coucou Cynthia")
+print (info_connexion)
+connexion_principale.close()
